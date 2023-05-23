@@ -4,7 +4,7 @@
     <div class="jumbotron"></div>
     <section>
         <main>
-            <div class="wrapper_ms">
+            <div class="wrapper">
                 <span class="current-series">CURRENT SERIES</span>
                 <div class="ms_row">
                     @php
