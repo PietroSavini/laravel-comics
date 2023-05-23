@@ -1,1 +1,180 @@
 @import '~bootstrap/scss/bootstrap';
+
+
+//variables
+$primary : #0282F9;
+$cta-bg:#303030;
+$main-bg:#1C1C1C;
+$body-bg:#1F1F1F;
+$header-text:#464646;
+$footer-text:#959595;
+
+
+//mixins
+@mixin flex ($direction, $justify-content, $align-items){
+    display : flex;
+    flex-direction : $direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+img{
+    max-width: 100%;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+body{
+    background-color: #1F1F1F;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+section{
+    padding: 2rem 0rem;
+    width: 100%;
+}
+
+/* common */
+.wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 .5rem;
+}
+
+//header-------------------------------------------------------------------
+
+header{
+    background-color: #fff;
+    height: 150px;
+    
+    .wrapper{
+        height: 100%;
+        @include flex (row, space-between, center);
+        img{
+            min-width: 103px;
+        }
+        ul{
+            @include flex(row,space-between,center);
+            height: 150px;
+            li{
+            height: 100%;
+            line-height: 150px;
+            padding: 0 .5rem;
+            min-width: 50px;
+            text-align: center;
+            transition: 200ms;
+                &:hover{
+                    border-bottom: 5px solid $primary;
+                    color: $primary;
+
+                }
+                
+            }
+        }
+    }
+}
+//main---------------------------------------------------------------------
+
+.jumbotron{
+    width: 100%;
+    background-image: url(../assets/jumbotron.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    z-index: 1;
+}
+section{
+    background-color: $main-bg;
+    .wrapper_ms{
+        position: relative;
+        padding-top: 2rem;
+        z-index: 2;
+        .current-series{
+            z-index: 3;
+            top: -60px;
+            position: absolute;
+            padding: .7rem 1.5rem;
+            background-color: $primary;
+            color: #fff;
+            font-weight: 700;
+            font-size: 25px;
+            box-shadow: 0 0 10px black;
+        }
+        .btn_ms{
+            display: inline-block;
+            padding: .7rem 1.5rem;
+            background-color: $primary;
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 0 10px black;
+            margin-left: 50%;
+            //non chidedtemi perchè non funziona il margin 0 auto //////////////////////////////////////////////////////////////
+            transform: translateX(-50%);
+            transition: 200ms;
+            cursor: pointer;
+            &:hover{
+                transform: scale(1.1) translateX(-45%);
+            }
+        }
+        .ms_row{
+            width: 100%;
+            padding: 0 .5rem;
+            @include flex (row, center, center );
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            .col_ms{
+                width: calc(100% / 6);
+                min-width: 170px;
+                padding: .5rem .5rem;
+                max-height: 300px;
+                margin-bottom: 20px;
+                cursor: pointer;
+                .card_ms{
+                    color: #fff;
+                    transition: 200ms;
+                    @include flex(column,normal,center);
+                    &:hover{
+                        transform: scale(1.1);
+                    }
+                    .card-img{
+                        height: 250px;
+                        margin-bottom: 10px;
+                        overflow: hidden;
+                        img{
+                            display: block;
+                            object-fit: cover;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .card-content{
+                        width: 100%;
+                        max-height: 40px;
+                        @include flex(row, space-between,center);
+                        padding: .5rem .3rem .5rem 0;
+                        gap:10px;
+
+                        p{
+                            font-size: .8rem;
+                        }
+                        span{
+                            font-size: .9rem;
+                            color: rgb(255, 234, 0);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
