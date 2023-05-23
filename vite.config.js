@@ -1,8 +1,8 @@
 import {
     defineConfig
 } from 'vite';
-import laravel from 'laravel-vite-plugin';
-const path = require('path') // <-- require path from node
+import  laravel  from 'laravel-vite-plugin';
+import path from 'path'; // <-- require path from node
 
 export default defineConfig({
     plugins: [
